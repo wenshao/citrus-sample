@@ -9,7 +9,7 @@
             ]]></pattern>
         </layout>
         <filter class="com.alibaba.citrus.logconfig.logback.LevelRangeFilter">
-            <levelMax>INFO</levelMax>
+            <levelMax>WARN</levelMax>
         </filter>
     </appender>
 
@@ -38,7 +38,7 @@
     </appender>
 
     <root>
-        <level value="${loggingLevel}" />
+        <level value="WARN" />
         <appender-ref ref="STDERR" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="PROJECT" />

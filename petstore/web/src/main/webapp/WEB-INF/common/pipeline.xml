@@ -29,8 +29,16 @@
         <!-- 检查页面的授权，如果当前用户无权访问该页面，则跳转到petstoreLogin页面 -->
         <pageAuthorization callbackClass="com.alibaba.sample.petstore.web.common.PetstoreUserAuth" />
 
+		<if>
+			<pl-conditions:target-extension-condition extension="/rest/" />
+            <valve class="com.alibaba.webx.restful.support.webx3.RestfulValve" />
+		</if>
         <loop>
             <choose>
+              	<when>
+                    <pl-conditions:path-condition name="/store/rest/(.+)" />
+                    <valve class="com.alibaba.webx.restful.support.webx3.RestfulValve" />
+                </when>
                 <when>
                     <!-- 执行带模板的screen，默认有layout。 -->
                     <pl-conditions:target-extension-condition extension="null, vm, jsp, jspx" />
